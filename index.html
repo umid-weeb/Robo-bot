@@ -1039,31 +1039,39 @@
       next();
     }
     // === Klaviatura boshqaruvi ===
-document.addEventListener("keydown", (e) => {
-  switch (e.key.toLowerCase()) {
-    case "arrowup":
-      addCommand("move_forward");
-      break;
-    case "arrowleft":
-      addCommand("turn_left");
-      break;
-    case "arrowright":
-      addCommand("turn_right");
-      break;
-    case "p": // 'P' ni bossang — pick_up
-      addCommand("pick_up");
-      break;
-    case "i": // 'I' ni bossang — insert
-      addCommand("insert");
-      break;
-    case "r": // 'R' ni bossang — reset
-      reset();
-      break;
-    case "enter": // Enter bosilganda Run
-      run();
-      break;
-  }
-});
+    document.addEventListener("keydown", (e) => {
+      switch (e.key.toLowerCase()) {
+        case "arrowup":
+          addCommand("move_forward");
+          break;
+        case "arrowleft":
+          addCommand("turn_left");
+          break;
+        case "arrowright":
+          addCommand("turn_right");
+          break;
+        case "p": // 'P' ni bossang — pick_up
+          addCommand("pick_up");
+          break;
+        case "i": // 'I' ni bossang — insert
+          addCommand("insert");
+          break;
+        case "r": // 'R' ni bossang — reset
+          reset();
+          break;
+        case "enter": // Enter bosilganda Run
+          run();
+          break;
+        case "backspace": // Backspace bosilganda oxirgi buyruqni o'chirish
+          e.preventDefault(); // sahifani orqaga qaytishdan saqlaydi
+          if (commands.length > 0) {
+            commands.pop(); // oxirgi buyruqni o'chirish yban
+            updateCodeView(); // code oynasini yangilash uchun moll
+          }
+          break;
+      }
+    });
+
 
 
     // Next level
