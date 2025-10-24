@@ -783,6 +783,7 @@ function reset() {
   x = 1;
   y = 5;
   dir = 1;
+  counter =0;
   hasDisk = false;
   commands = [];
   carryDisk.style.display = "none";
@@ -791,6 +792,9 @@ function reset() {
   showMessage("");
   nextLevelBtn.style.display = "none";
   updateCodeView();
+ 
+  
+
 }
 
 // Place disk and server
@@ -802,7 +806,7 @@ function placeObjects() {
   disk.style.display = "block";
 }
 
-// Move robot forward
+
 function move_forward() {
   if (dir === 0 && y > 0) y--;
   else if (dir === 1 && x < 6) x++;
@@ -822,7 +826,6 @@ function turn_right() {
   dir = (dir + 1) % 4;
   updateRobot();
 }
-
 // Pick up disk
 function pick_up() {
   if (x === diskPos.x && y === diskPos.y && !hasDisk) {
