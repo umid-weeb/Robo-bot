@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Robo-Bot | Kirish</title>
+  <style>
+    body{font-family:Arial;background:#0d1117;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .box{background:#161b22;padding:28px;border-radius:10px;width:320px;box-shadow:0 4px 30px rgba(0,0,0,.6);text-align:center}
+    input{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none;background:#0b0f13;color:#fff}
+    .row{display:flex;gap:8px}
+    button{padding:10px;border:none;border-radius:6px;cursor:pointer}
+    .primary{background:#238636;color:#fff;width:100%}
+    .muted{background:transparent;border:1px solid #2a2f34;color:#ddd}
+    .small{font-size:13px;color:#9aa1a6;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Robo-Bot</h2>
+
+    <input id="username" placeholder="Username kiriting" autocomplete="username">
+    <input id="password" type="password" placeholder="Parol kiriting" autocomplete="current-password">
+
+    <div style="margin-top:8px" class="row">
+      <button id="btnSignIn" class="primary">Log in</button>
+      <button id="btnSignUp" class="muted">Sign up</button>
+    </div>
+
+    <p class="small">Agar yangi foydalanuvchi bo'lsangiz — Sign up bosing. Oldin ro'yxatdan o'tgan bo'lsangiz — Log in bosing.</p>
+  </div>
+
+  <script>
+    // Bu login sahifasi uchun faqat localStorage bilan ishlaydi
+    const STORAGE_KEY = 'robobot_users';
+
+    function loadUsers(){
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+      catch(e){ return {}; }
+    }
+    function saveUsers(u){ localStorage.setItem(STORAGE_KEY, JSON.stringify(u)); }
+
+    function handleSignUp(){
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if(!username || !password) return alert('Iltimos username va parol kiriting.');
+      const users = loadUsers();
+      if(users[username]) return alert('Bu username allaqachon mavjud. Iltimos Log in qiling yoki boshqa username tanlang.');
+      users[username] = { password: password, level: 1 };
+      saveUsers(users);
+      localStorage.setItem('robobot_current', username);
+      window.location.href = "index.html";
+    }
+
+    function handleSignIn(){
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if(!username || !password) return alert('Iltimos username va parol kiriting.');
+      const users = loadUsers();
+      if(!users[username] || users[username].password !== password) return alert('Username yoki parol noto‘g‘ri.');
+      localStorage.setItem('robobot_current', username);
+      window.location.href = "index.html";
+    }
+
+    document.getElementById('btnSignUp').addEventListener('click', handleSignUp);
+    document.getElementById('btnSignIn').addEventListener('click', handleSignIn);
+
+    // Enter tugmasi bilan ham ishlash
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') handleSignIn();
+    });
+
+    // Agar brauzerda allaqachon current user bo'lsa va user ma'lumotlari mavjud bo'lsa, to'g'ridan-to'g'ri o'yinga o'tkazilsin
+    (function autoGoIfAlreadyAuth(){
+      const cur = localStorage.getItem('robobot_current');
+      if(!cur) return;
+      const users = loadUsers();
+      if(users[cur]) {
+        // agar cookie/LS bilan oldin login qilingan bo'lsa, to'g'ridan-to'g'ri index.html
+        window.location.href = "index.html";
+      } else {
+        // agar localStoragedagi current user yo'q bo'lib qolgan bo'lsa — tozalaymiz
+        localStorage.removeItem('robobot_current');
+      }
+    })();
+  </script>
+</body>
+</html>

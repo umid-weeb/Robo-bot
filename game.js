@@ -1,4 +1,11 @@
- // DOM elements
+ // === USER AUTH / LEVEL YUKLASH ===
+const startingLevel = (typeof window.initialPlayerLevel === 'number')
+? window.initialPlayerLevel
+: 1;
+let playerLevel = startingLevel; // o'yin shu leveldan boshlanadi
+// ================================
+
+// DOM elements
  const robot = document.getElementById('robot');
  const disk = document.getElementById('disk');
  const server = document.getElementById('server');
@@ -13,7 +20,7 @@
  let x = 1, y = 5, dir = 1; // dir: 0=up, 1=right, 2=down, 3=left
  let hasDisk = false;
  let commands = [];
- let level = 1;
+ let level = playerLevel; // localStorage’dan yuklangan leveldan boshlanadi
  let isRunning = false;
 
  const cellSize = 80;
@@ -252,6 +259,7 @@
  // Next level
  function nextLevel() {
    level++;
+   window.updatePlayerLevel(level); // foydalanuvchi progressini saqlaydi
    levelNumber.textContent = level;
    showMessage("🆙 Level " + level + " boshlandi!", "success");
    nextLevelBtn.style.display = "none";
