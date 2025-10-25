@@ -7,7 +7,7 @@
 body {
   background: radial-gradient(circle at 30% 40%, #1a1f3a 0%, #0a0e1a 100%);
   color: #e0e0e0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
   position: relative;
 }
@@ -33,6 +33,7 @@ body {
 }
 
 @keyframes twinkle {
+
   0%,
   100% {
     opacity: 0.3;
@@ -97,7 +98,9 @@ body {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
   gap: 2px;
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 40px rgba(0, 212, 255, 0.4),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
   border: 3px solid #00d4ff;
   border-radius: 8px;
   position: relative;
@@ -112,17 +115,13 @@ body {
 }
 
 .cell::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 212, 255, 0.1) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -149,12 +148,14 @@ body {
   border-radius: 12px;
   position: relative;
   top: 10px;
-  box-shadow: inset 0 -4px 8px rgba(14, 74, 122, 0.8),
+  box-shadow:
+    inset 0 -4px 8px rgba(14, 74, 122, 0.8),
     0 4px 15px rgba(58, 193, 255, 0.4);
   animation: robotFloat 2s ease-in-out infinite;
 }
 
 @keyframes robotFloat {
+
   0%,
   100% {
     transform: translateY(0px);
@@ -185,6 +186,7 @@ body {
 }
 
 @keyframes blink {
+
   0%,
   92%,
   100% {
@@ -210,7 +212,7 @@ body {
 }
 
 .robot-antenna::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -5px;
   left: 50%;
@@ -224,6 +226,7 @@ body {
 }
 
 @keyframes antennaBlink {
+
   0%,
   100% {
     opacity: 1;
@@ -277,6 +280,7 @@ body {
 }
 
 @keyframes carryGlow {
+
   0%,
   100% {
     box-shadow: 0 0 15px #00ff9d, 0 0 5px #00ff9d inset;
@@ -301,6 +305,7 @@ body {
 }
 
 @keyframes diskPulse {
+
   0%,
   100% {
     box-shadow: 0 0 20px #00ff9d;
@@ -314,18 +319,14 @@ body {
 }
 
 .disk::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.8) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -337,7 +338,8 @@ body {
   background: linear-gradient(145deg, #2a3f6d, #1f2f52);
   border: 3px solid #00aaff;
   border-radius: 8px;
-  box-shadow: 0 0 25px rgba(0, 170, 255, 0.6),
+  box-shadow:
+    0 0 25px rgba(0, 170, 255, 0.6),
     inset 0 0 15px rgba(0, 170, 255, 0.2);
   z-index: 15;
   display: flex;
@@ -349,15 +351,14 @@ body {
 }
 
 @keyframes serverPulse {
+
   0%,
   100% {
-    box-shadow: 0 0 25px rgba(0, 170, 255, 0.6),
-      inset 0 0 15px rgba(0, 170, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.6), inset 0 0 15px rgba(0, 170, 255, 0.2);
   }
 
   50% {
-    box-shadow: 0 0 35px rgba(0, 170, 255, 0.8),
-      inset 0 0 20px rgba(0, 170, 255, 0.3);
+    box-shadow: 0 0 35px rgba(0, 170, 255, 0.8), inset 0 0 20px rgba(0, 170, 255, 0.3);
   }
 }
 
@@ -379,6 +380,7 @@ body {
 }
 
 @keyframes serverLightBlink {
+
   0%,
   100% {
     opacity: 1;
@@ -398,7 +400,8 @@ body {
   padding: 25px;
   gap: 12px;
   border-left: 3px solid #00d4ff;
-  box-shadow: inset 0 0 30px rgba(0, 212, 255, 0.1),
+  box-shadow:
+    inset 0 0 30px rgba(0, 212, 255, 0.1),
     -5px 0 20px rgba(0, 0, 0, 0.5);
   overflow-y: auto;
 }
@@ -417,7 +420,7 @@ body {
   min-height: 200px;
   max-height: 300px;
   color: #00ff9d;
-  font-family: "Courier New", monospace;
+  font-family: 'Courier New', monospace;
   font-size: 14px;
   padding: 15px;
   overflow-y: auto;
@@ -498,7 +501,7 @@ button {
 }
 
 button::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -573,6 +576,7 @@ button span {
 }
 
 @keyframes nextLevelPulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -633,6 +637,7 @@ button span {
 }
 
 @keyframes messageError {
+
   0%,
   100% {
     transform: translateX(0);
@@ -649,6 +654,7 @@ button span {
 
 /* Victory animation */
 @keyframes victory {
+
   0%,
   100% {
     transform: scale(1) rotate(0deg);
@@ -729,123 +735,5 @@ button span {
   .robot-body {
     width: 50px;
     height: 35px;
-  }
-}
-/* //////////////////////////////////// */
-/* === 📱 Qo'shimcha Responsive qo'llab-quvvatlash === */
-@media (max-width: 768px) {
-  body {
-    overflow-y: auto;
-  }
-
-  #app {
-    flex-direction: column;
-    height: auto;
-  }
-
-  #game-area {
-    order: 1;
-    padding: 10px;
-  }
-
-  #controls {
-    order: 2;
-    width: 100%;
-    padding: 15px;
-    border-left: none;
-    border-top: 2px solid #00d4ff;
-    max-height: none;
-    box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1);
-  }
-
-  #level-info {
-    top: 10px;
-    left: 10px;
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-
-  .grid {
-    width: 340px;
-    height: 340px;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 1px;
-  }
-
-  #robot {
-    width: 45px;
-    height: 45px;
-  }
-
-  .robot-body {
-    width: 45px;
-    height: 30px;
-  }
-
-  .disk {
-    width: 30px;
-    height: 8px;
-  }
-
-  .server {
-    width: 50px;
-    height: 50px;
-  }
-
-  button {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  #code-view {
-    font-size: 12px;
-    padding: 10px;
-    max-height: 180px;
-  }
-
-  .instructions {
-    max-width: 300px;
-    padding: 10px 15px;
-  }
-
-  .instructions h4 {
-    font-size: 14px;
-  }
-
-  .instructions p {
-    font-size: 12px;
-  }
-}
-
-/* Juda kichik ekranlar uchun (masalan, iPhone SE, Galaxy A10) */
-@media (max-width: 480px) {
-  .grid {
-    width: 280px;
-    height: 280px;
-  }
-
-  #robot {
-    width: 35px;
-    height: 35px;
-  }
-
-  .robot-body {
-    width: 35px;
-    height: 25px;
-  }
-
-  #controls h3 {
-    font-size: 16px;
-  }
-
-  button {
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  #message {
-    font-size: 13px;
-    padding: 10px;
   }
 }
