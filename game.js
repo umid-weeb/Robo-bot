@@ -2,8 +2,8 @@
 const startingLevel =
   typeof window.initialPlayerLevel === "number" ? window.initialPlayerLevel : 1;
 
-let level = startingLevel; // foydalanuvchi oxirgi saqlangan levelidan boshlaydi
-// ================================
+  let level = Number(window.initialPlayerLevel) || 1;
+  // ================================
 
 // DOM elements
 const robot = document.getElementById("robot");
@@ -260,9 +260,9 @@ document.addEventListener("keydown", (e) => {
 
 // Next level
 function nextLevel() {
-  level++;
-  window.updatePlayerLevel(level); // foydalanuvchi progressini saqlaydi
-
+  level = Number(level) + 1;
+  window.updatePlayerLevel(level);
+  
   levelNumber.textContent = level;
   showMessage("🆙 Level " + level + " boshlandi!", "success");
   nextLevelBtn.style.display = "none";

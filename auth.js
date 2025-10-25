@@ -85,7 +85,7 @@ window.initialPlayerLevel = userData.level || 1;
 window.updatePlayerLevel = function (newLevel) {
   const users = loadUsers();
   if (!users[currentUser]) return;
-  users[currentUser].level = newLevel; // foydalanuvchi uchun saqlanadi
+  users[currentUser].level = Number(newLevel);
   saveUsers(users);
   console.log(`💾 Progress saqlandi: ${currentUser} → Level ${newLevel}`);
 };
