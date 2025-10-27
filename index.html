@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robot Disk Missiyasi — Dasturlashni o'rganing</title>
+  <title>Isroilov's bot</title>
   <link rel="stylesheet" href="styles.css">
-  
+  <link rel="icon" type="image/png" href="image copy.png">
+
 </head>
 
 <body>
 
- 
+
   <div class="stars" id="stars"></div>
 
   <div id="app">
@@ -23,7 +24,7 @@
       <div class="grid-container">
         <div class="grid" id="grid"></div>
 
-        <div id="robot">
+        <div id="robot" class="explode">
           <div class="robot-antenna"></div>
           <div class="robot-body">
             <div class="robot-eye eye-left"></div>
@@ -75,7 +76,10 @@
 
       <div class="control-buttons">
         <button class="btn-run" onclick="run()"><span>▶️ RUN</span></button>
-        <button class="btn-reset" onclick="reset()"><span>⟲ RESET <span class="reset_counter">1</span></span></button>
+        <button class="btn-reset" onclick="reset()"><span>
+            <p>Resetlar soni: <span id="reset_counter">0</span></p>
+            <span class="reset_counter"></span>
+          </span></button>
         <button class="btn-next" id="nextLevelBtn" onclick="nextLevel()"><span>🎯 Keyingi Level</span></button>
       </div>
 
@@ -85,4 +89,5 @@
 </body>
 <script src="auth.js"></script>
 <script src="game.js"></script>
+
 </html>
